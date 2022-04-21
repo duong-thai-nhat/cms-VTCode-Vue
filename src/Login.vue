@@ -2,7 +2,7 @@
     <div class="form__login__wrap">
         <div id="form__login">
             <form action="submit">
-                <img src="../assets/Logo_VTCode.png" alt="" class="form__login__logo">
+                <img src="assets/img/Logo_VTCode.png" alt="" class="form__login__logo">
                 <h1 class="form__login__heading">Login</h1>
                 <div class="form__login__item">
                     <label for="" class="form__login__label_input">Username</label>
@@ -23,7 +23,6 @@
 
 <script>
 // import axios from 'axios'
-// import routerAuthCheck from './Router/router.js'
 
 export default {
     name: 'LoGin',
@@ -96,8 +95,8 @@ export default {
                     localStorage.setItem("accessToken", data.accessToken)
                     this.$router.push('/');
                     this.$store.dispatch('editUserLogin', data);
+                    
                     console.log(this.$store.getters.Userlogin.userIsAuthorized)
-                    // routerAuthCheck = this.$store.getters.Userlogin.userIsAuthorized;
                 }
 
             })
@@ -119,6 +118,7 @@ export default {
         top: 0;
         bottom: 0;
         right: 0;
+        /* background-image: url('assets/img/Logo_VTCode.png'); */
         background-color: #fff;
         display: flex;
         justify-content: center;

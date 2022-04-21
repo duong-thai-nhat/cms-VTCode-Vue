@@ -5,10 +5,13 @@ import ManagerPost from "../components/PageWebsite/PageWrapper/Content/ManagerPo
 import ManagerProject from "../components/PageWebsite/PageWrapper/Content/ManagerProject.vue"
 import ManagerCustomer from "../components/PageWebsite/PageWrapper/Content/ManagerCustomer.vue"
 import ManagerService from "../components/PageWebsite/PageWrapper/Content/ManagerService.vue"
+import ErrorLogin from "../ErrorLogin"
 // import ErrorBug from "./components/ErrorBug"
 // import Sidebar from "./components/SideBar/SideBar"
 import Login from "../Login"
 import TestTable from "../TestTable.vue"
+
+import store from "../Store/index"
 
 
 const routes = [
@@ -61,7 +64,12 @@ const routes = [
     {
         name: 'login',
         path: "/login",
-        component: Login
+        component: Login,
+    },
+    {
+        name: 'error',
+        path: "/error",
+        component: ErrorLogin,
     }
 ]
 
@@ -70,9 +78,9 @@ const router = createRouter({
     routes,
 });
 
-export let routerAuthCheck = true;
-// console.log(this.$store.getters.Userlogin.userIsAuthorized)
 router.beforeEach((to, from, next) => {
+    let routerAuthCheck = store.getters.Userlogin.userIsAuthorized;
+    console.log(store.getters.Userlogin.userIsAuthorized)
 
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (routerAuthCheck) {

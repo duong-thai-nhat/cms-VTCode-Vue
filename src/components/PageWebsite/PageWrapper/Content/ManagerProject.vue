@@ -151,6 +151,7 @@ export default {
 
         handleClickPrev: function(e){
             e.preventDefault();
+            window.scrollTo(0, 0);
             this.paging.totalPages = Math.ceil(this.datas.length / this.paging.perPage);
             this.paging.end = this.paging.perPage;
             this.paging.currentPage --;
@@ -178,6 +179,7 @@ export default {
         
         handleClickNext: function(e){
             e.preventDefault();
+            window.scrollTo(0, 0);
             this.paging.totalPages = Math.ceil(this.datas.length / this.paging.perPage);
             this.paging.end = this.paging.perPage;
             this.paging.currentPage ++;
@@ -212,6 +214,7 @@ export default {
 
         changePage: function(e){
             e.preventDefault();
+            window.scrollTo(0, 0);
             this.paging.currentPage = e.target.innerText - 0;
 
             const pageLink = document.querySelectorAll('.page-link.page-select');
