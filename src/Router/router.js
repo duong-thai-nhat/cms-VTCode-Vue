@@ -70,6 +70,11 @@ const routes = [
         name: 'error',
         path: "/error",
         component: ErrorLogin,
+    },
+    {
+        name: 'not-found',
+        path: '/:pathMatch(.*)*',
+        component: ErrorLogin,
     }
 ]
 

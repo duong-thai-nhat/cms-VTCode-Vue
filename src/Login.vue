@@ -1,5 +1,6 @@
 <template>
     <div class="form__login__wrap">
+        <img class="form__login__bg" src="assets/img/bg_login.webp" alt="">
         <div id="form__login">
             <form action="submit">
                 <img src="assets/img/Logo_VTCode.png" alt="" class="form__login__logo">
@@ -119,10 +120,18 @@ export default {
         bottom: 0;
         right: 0;
         /* background-image: url('assets/img/Logo_VTCode.png'); */
-        background-color: #fff;
+        /* background-color: #fff; */
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .form__login__bg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        
     }
 
     #form__login{
