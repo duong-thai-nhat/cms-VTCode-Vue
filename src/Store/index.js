@@ -27,6 +27,7 @@ const store = createStore(
             // UserLogin
             Userlogin: {
                 username: 'Nhat',
+                userIsAuthorized: false,
             }
         },
         getters: {
@@ -184,6 +185,7 @@ const store = createStore(
             // UserLogin
             editUserLogin(state, item) {
                 state.Userlogin.username = item.firstName;
+                state.Userlogin.userIsAuthorized = true;
             }
         },
         actions: {

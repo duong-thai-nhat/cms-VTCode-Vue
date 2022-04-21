@@ -13,7 +13,8 @@
 
       <template v-slot:footer>
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="#" data-dismiss="modal">Logout</a>
+            <router-link class="btn btn-primary" href="#" data-dismiss="modal" to="/login">Logout</router-link>
+            <!-- <a class="btn btn-primary" @click="logout" href="#" data-dismiss="modal" v-if="this.$store.getters.Userlogin.userIsAuthorized">Logout</a> -->
       </template>
 
   </modal>
@@ -24,7 +25,7 @@ import Modal from "../Layout/Modal.vue"
 export default {
     components: {
         Modal,
-    }
+    },
 }
 </script>
 

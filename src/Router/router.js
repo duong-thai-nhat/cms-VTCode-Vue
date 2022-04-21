@@ -14,33 +14,52 @@ import TestTable from "../TestTable.vue"
 const routes = [
     {
         path: "/",
-        component: TestTable
+        component: TestTable,
+        meta: {
+            requiresAuth: true,
+        }
     },
     {
         path: "/user",
-        component: ManagerUser
+        component: ManagerUser,
+        meta: {
+            requiresAuth: true,
+        }
     },
 
     {
         path: "/post",
-        component: ManagerPost
+        component: ManagerPost,
+        meta: {
+            requiresAuth: true,
+        }
     },
 
     {
         path: "/project",
-        component: ManagerProject
+        component: ManagerProject,
+        meta: {
+            requiresAuth: true,
+        }
     },
 
     {
         path: "/customer",
-        component: ManagerCustomer
+        component: ManagerCustomer,
+        meta: {
+            requiresAuth: true,
+        }
     },
 
     {
         path: "/service",
-        component: ManagerService
+        component: ManagerService,
+        meta: {
+            requiresAuth: true,
+        }
     },
     {
+        name: 'login',
         path: "/login",
         component: Login
     }
@@ -50,5 +69,23 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
 });
+
+export let routerAuthCheck = true;
+// console.log(this.$store.getters.Userlogin.userIsAuthorized)
+router.beforeEach((to, from, next) => {
+
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (routerAuthCheck) {
+            next();
+        }
+        else {
+            router.replace('/login');
+        }
+    }
+    else {
+        next();
+    }
+})
+
 
 export default router;

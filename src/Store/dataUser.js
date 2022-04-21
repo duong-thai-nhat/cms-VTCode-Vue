@@ -1,3 +1,4 @@
+// import { dataUser } from './getDataUser'
 export const userData = {
     columnData: [
         'ID',
@@ -6,7 +7,7 @@ export const userData = {
         'Mật khẩu',
     ],
     rowData: [
-         {'ID': '3211', 'Username': 'Otto', 'Email': '@mdo', 'Password': '1234' },
+        {'ID': '3211', 'Username': 'Otto', 'Email': '@mdo', 'Password': '1234' },
         {'ID': '3212', 'Username': 'Thornton', 'Email': '@fat', 'Password': '1234'},
         {'ID': '3213', 'Username': 'Bird', 'Email': '@twitter', 'Password': '1234'},
         {'ID': '3214', 'Username': 'Khánh', 'Email': '@mdo', 'Password': '1234'},
@@ -34,4 +35,5 @@ export const userData = {
         {'ID': '3236', 'Username': 'Cẩn', 'Email': '@fat', 'Password': '1234'},
         {'ID': '3237', 'Username': 'Trình', 'Email': '@twitter', 'Password': '1234'},
     ],
+    // rowData: dataUser,
 }

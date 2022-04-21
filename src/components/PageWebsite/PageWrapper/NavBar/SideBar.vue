@@ -3,8 +3,8 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-            <img src="../../../../assets/Logo_VTCode.png" alt="" style="height: 50px, width: 100%"/>
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" style="background-color: #fff" href="#">
+            <img src="/assets/img/Logo_VTCode.png" style="height: 50px" alt="" >
         </a>
 
         <!-- Divider -->

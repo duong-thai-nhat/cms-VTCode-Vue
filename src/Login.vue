@@ -1,7 +1,7 @@
 <template>
     <div class="form__login__wrap">
         <div id="form__login">
-            <div action="submit">
+            <form action="submit">
                 <img src="../assets/Logo_VTCode.png" alt="" class="form__login__logo">
                 <h1 class="form__login__heading">Login</h1>
                 <div class="form__login__item">
@@ -13,16 +13,17 @@
                     <label for="" class="form__login__label_input">Passwork</label>
                     <input type="text" v-model="password" class="form__login__input">
                 </div>
-                <button @click="login" class="form__login__button">
+                <button @click="login" type="submit" class="form__login__button">
                     Submit
                 </button>
-            </div>
+            </form>
         </div>
     </div>
 </template>
 
 <script>
 // import axios from 'axios'
+// import routerAuthCheck from './Router/router.js'
 
 export default {
     name: 'LoGin',
@@ -33,8 +34,9 @@ export default {
         }
     },
     methods: {
-        login(){
-            
+        login(e){
+            e.preventDefault();
+
             // await axios.post(
             //     `https://tengu-nodejs.herokuapp.com/api/auth/login/`,{
             // method:'POST',
@@ -86,23 +88,21 @@ export default {
     
             }).then((response) => response.json())
             .then((data) => {
-                console.log(1);
                 if(data.status_code === 404){
                     this.$router.push('/error');
-                    this.$state.dispatch('editUserLogin', data)
+                    // this.$state.dispatch('editUserLogin', data)
                 }
                 else{
                     localStorage.setItem("accessToken", data.accessToken)
                     this.$router.push('/');
-                    this.$state.dispatch('editUserLogin', data)
+                    this.$store.dispatch('editUserLogin', data);
+                    console.log(this.$store.getters.Userlogin.userIsAuthorized)
+                    // routerAuthCheck = this.$store.getters.Userlogin.userIsAuthorized;
                 }
 
             })
-            .catch((error)=>{
-                console.log(error)
+            .catch(()=>{
                 this.$router.push('/error');
-                alert('sdàdgfdg')
-
             })
         }
     },
